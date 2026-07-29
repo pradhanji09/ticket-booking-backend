@@ -5,9 +5,9 @@ const adminLoginController = async (req, res) => {
 
   const result = await adminLoginService(email, password);
 
-  const { status, json } = result;
+  const { status, data } = result;
 
-  res.status(status).json(json);
+  res.status(status).json(data);
 };
 
 module.exports = adminLoginController;
