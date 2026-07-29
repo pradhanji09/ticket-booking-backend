@@ -1,4 +1,4 @@
-const userSignupService = require("../service/user-signup");
+const userSignupService = require("../service/signup");
 
 const userSignupController = async (req, res) => {
   const { name, email, password } = req.body;
@@ -11,10 +11,9 @@ const userSignupController = async (req, res) => {
   }
 
   const result = await userSignupService(name, email, password);
+  const { status, data } = result;
 
-  const { status, json } = result;
-
-  return res.status(status).json(json);
+  return res.status(status).json(data);
 };
 
 module.exports = userSignupController;

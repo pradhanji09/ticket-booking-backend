@@ -1,9 +1,9 @@
-const userSignup = require("./signup");
-const login = require("./login");
-const adminLogin = require("./admin-login");
+const userSignupController = require("./signup");
+const userLoginController = require("./user-login");
+const adminLoginController = require("./admin-login");
 
 module.exports = {
-  signup: userSignup,
-  login,
-  adminLogin,
+  signup: userSignupController,
+  login: userLoginController,
+  adminLogin: adminLoginController,
 };

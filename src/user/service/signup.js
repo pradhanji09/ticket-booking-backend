@@ -9,7 +9,7 @@ const userSignupService = async (name, email, password) => {
     if (userExist) {
       return {
         status: 400,
-        json: { success: false, error: "Email already in use" },
+        data: { success: false, error: "Email already in use" },
       };
     }
 
@@ -36,14 +36,13 @@ const userSignupService = async (name, email, password) => {
       status: 201,
       data: {
         success: true,
-        message: "User created successfully",
         user: result,
       },
     };
   } catch (error) {
     return {
       status: 500,
-      json: { success: false, error: "Internal server error" },
+      data: { success: false, error: "Internal server error" },
     };
   }
 };
