@@ -20,7 +20,7 @@ const transactionSchema = new mongoose.Schema(
     },
     reason: {
       type: String,
-      enum: ["WALLET_TOPUP", "BOOKING_PAYMENT", "BOOKING_REFUND"],
+      enum: ["TOPUP", "BOOKING", "REFUND"],
       required: true,
     },
     referenceId: {
