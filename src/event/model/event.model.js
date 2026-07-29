@@ -11,10 +11,6 @@ const eventSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    venue: {
-      type: String,
-      required: true,
-    },
     eventDate: {
       type: Date,
       required: true,
@@ -26,8 +22,7 @@ const eventSchema = new mongoose.Schema(
     },
     totalSeats: {
       type: Number,
-      required: true,
-      min: 1,
+      default: 0,
     },
     status: {
       type: String,
