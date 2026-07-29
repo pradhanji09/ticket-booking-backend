@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use("/api/auth", userRoutes);
+app.use(express.urlencoded({ extended: true }));
 
 // DB Connection
 connectDB();
@@ -18,6 +18,8 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
+app.use("/api/auth", userRoutes);
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server started on port ${process.env.PORT}`);
 });

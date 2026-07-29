@@ -3,10 +3,10 @@ const userSignupService = require("../service/signup");
 const userSignupController = async (req, res) => {
   const { name, email, password } = req.body;
 
-  if (!name || !email || !password) {
+  if (!email || !password) {
     return res.status(400).json({
       success: false,
-      error: "Name, email and password are required",
+      error: "Email and password are required",
     });
   }
 

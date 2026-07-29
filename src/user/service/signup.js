@@ -5,7 +5,7 @@ const runInTransaction = require("../../common/utils/run-transaction");
 
 const userSignupService = async (name, email, password) => {
   try {
-    const userExist = await User.findOne({ where: { email } });
+    const userExist = await User.findOne({ email });
     if (userExist) {
       return {
         status: 400,

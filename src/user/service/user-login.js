@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const loginService = async (email, password) => {
   try {
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ email }).select("+password");
 
     if (!user) {
       return { status: 404, data: { success: false, error: "User not found" } };
