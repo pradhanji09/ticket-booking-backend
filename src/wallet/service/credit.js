@@ -25,7 +25,7 @@ const creditService = async ({ userId, amount, idempotencyKey }) => {
       const wallet = await Wallet.findOneAndUpdate(
         { userId },
         { $inc: { balance: amount } },
-        { new: true, session },
+        { returnDocument: "after", session },
       );
 
       const [transaction] = await Transaction.create(
@@ -34,7 +34,7 @@ const creditService = async ({ userId, amount, idempotencyKey }) => {
             userId,
             type: "CREDIT",
             amount,
-            reason: "WALLET_TOPUP",
+            reason: "TOPUP",
             balanceAfter: wallet.balance,
             idempotencyKey,
           },

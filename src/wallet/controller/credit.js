@@ -10,12 +10,12 @@ const creditController = async (req, res) => {
 
     const { amount } = body;
     if (!amount) {
-      return res.status(400).json({ message: "Invalid request" });
+      return res.status(400).json({ success: false, error: "Invalid request" });
     }
 
     const numberAmount = Number(amount);
     if (isNaN(numberAmount) || numberAmount <= 0) {
-      return res.status(400).json({ message: "Invalid amount" });
+      return res.status(400).json({ success: false, error: "Invalid amount" });
     }
 
     const { status, data } = await creditService({
