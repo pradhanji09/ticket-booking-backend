@@ -9,9 +9,9 @@ const bookingRoutes = require("./booking/routes/index");
 
 dotenv.config();
 // allows requests from ANY domain
-app.use(cors());
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
