@@ -2,7 +2,7 @@ const reserveSeatsService = require("../service/reserve");
 
 const reserveSeatsController = async (req, res) => {
   const { user, body } = req;
-  const { userId } = user;
+  const { id: userId } = user;
   const { eventId, seatIds } = body;
 
   if (!eventId)

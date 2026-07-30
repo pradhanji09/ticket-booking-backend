@@ -8,7 +8,7 @@ const Transaction = require("../../wallet/model/transaction.model");
 const runInTransaction = require("../../common/utils/run-transaction");
 
 const confirmBookingService = async (
-  id,
+  userId,
   reservationGroupId,
   idempotencyKey,
 ) => {
@@ -63,7 +63,7 @@ const confirmBookingService = async (
         const wallet = await Wallet.findOneAndUpdate(
           { userId, balance: { $gte: amount } },
           { $inc: { balance: -amount } },
-          { new: true, session },
+          { returnDocument: "after", session },
         );
 
         if (!wallet) throw new Error("INSUFFICIENT_BALANCE");
@@ -88,12 +88,12 @@ const confirmBookingService = async (
           {
             _id: { $in: seatIds },
             reservationGroupId,
-            reservedBy: id,
+            reservedBy: userId,
             status: "RESERVED",
             expiresAt: { $gte: new Date() },
           },
           {
-            $set: { status: "BOOKED", bookedBy: id },
+            $set: { status: "BOOKED", bookedBy: userId },
             $unset: { reservedAt: "", expiresAt: "", reservedBy: "" },
           },
           { session },
@@ -107,7 +107,7 @@ const confirmBookingService = async (
         const [newBooking] = await Booking.create(
           [
             {
-              userId: id,
+              userId: userId,
               eventId: event._id,
               seatIds,
               seatCount: seats.length,

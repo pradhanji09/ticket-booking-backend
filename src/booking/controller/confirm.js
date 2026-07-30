@@ -3,7 +3,7 @@ const confirmBookingService = require("../service/confirm");
 const confirmBookingController = async (req, res) => {
   const {
     body: { reservationGroupId },
-    user: { id },
+    user: { id: userId },
     idempotencyKey,
   } = req;
 
@@ -14,7 +14,7 @@ const confirmBookingController = async (req, res) => {
   }
 
   const { data, status } = await confirmBookingService(
-    id,
+    userId,
     reservationGroupId,
     idempotencyKey,
   );

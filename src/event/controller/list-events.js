@@ -7,7 +7,11 @@ const listEventsController = async (req, res) => {
     return res.status(400).json({ success: false, error: "Invalid status" });
   }
 
-  const { statusCode, data } = await listEventsService(page, limit, status);
+  const { status: statusCode, data } = await listEventsService(
+    page,
+    limit,
+    status,
+  );
   return res.status(statusCode).json(data);
 };
 

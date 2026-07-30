@@ -1,18 +1,18 @@
 const Event = require("../model/event.model");
 
-const createEventService = async (
+const createEventService = async ({
   name,
   description,
   eventDate,
-  seatPrice,
+  pricePerSeat,
   createdBy,
-) => {
+}) => {
   try {
     const event = await Event.create({
       name,
       description,
       eventDate,
-      pricePerSeat: seatPrice,
+      pricePerSeat,
       createdBy,
     });
 

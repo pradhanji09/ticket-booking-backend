@@ -37,6 +37,10 @@ const seatSchema = new mongoose.Schema(
       ref: "User",
       default: null,
     },
+    reservationGroupId: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps: true },
 );

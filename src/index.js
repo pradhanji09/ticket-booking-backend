@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", userRoutes);
 app.use("/api/wallet", walletRoutes);
 app.use("/api/events", eventRoutes);
-app.use("/api/events", bookingRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 app.listen(process.env.PORT, "0.0.0.0", () => {
   console.log(`Server started on port ${process.env.PORT}`);

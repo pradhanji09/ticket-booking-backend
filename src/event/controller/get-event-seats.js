@@ -16,7 +16,7 @@ const getEventSeatsController = async (req, res) => {
       .json({ success: false, error: "Invalid filter status" });
   }
 
-  const { status, data } = await getEventSeatsService(eventId, filterStatus);
+  const { status, data } = await getEventSeatsService(id, filterStatus);
 
   return res.status(status).json(data);
 };
