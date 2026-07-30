@@ -59,7 +59,7 @@ const cancelBookingService = async (bookingId, userId) => {
 
       booking.status = "CANCELLED";
       booking.refundTransactionId = refundTxn._id;
-      booking.canceledBy = userId;
+      booking.cancelledBy = userId;
       await booking.save({ session });
 
       return { refundTxn, booking };

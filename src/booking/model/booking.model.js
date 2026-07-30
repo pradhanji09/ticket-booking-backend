@@ -53,7 +53,7 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    canceledBy: {
+    cancelledBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       default: null,
