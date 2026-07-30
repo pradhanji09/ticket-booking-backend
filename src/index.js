@@ -4,6 +4,7 @@ const connectDB = require("./config/db");
 const userRoutes = require("./user/routes/index");
 const walletRoutes = require("./wallet/routes/index");
 const eventRoutes = require("./event/routes/index");
+const bookingRoutes = require("./booking/routes/index");
 const errorHandler = require("./common/middleware/error.middleware");
 
 dotenv.config();
@@ -22,7 +23,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", userRoutes);
 app.use("/api/wallet", walletRoutes);
-app.use("/api", eventRoutes);
+app.use("/api/events", eventRoutes);
+app.use("/api/events", bookingRoutes);
 
 // Centralized error handler
 app.use(errorHandler);
