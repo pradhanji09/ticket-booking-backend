@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const connectDB = require("./config/db");
 const userRoutes = require("./user/routes/index");
 const walletRoutes = require("./wallet/routes/index");
@@ -7,6 +8,8 @@ const eventRoutes = require("./event/routes/index");
 const bookingRoutes = require("./booking/routes/index");
 
 dotenv.config();
+// allows requests from ANY domain
+app.use(cors());
 
 const app = express();
 app.use(express.json());
