@@ -13,13 +13,13 @@ const confirmBookingController = async (req, res) => {
     });
   }
 
-  const result = await confirmBookingService(
+  const { data, status } = await confirmBookingService(
     id,
     reservationGroupId,
     idempotencyKey,
   );
 
-  res.status(200).json({ message: "Booking confirmed successfully", result });
+  res.status(status).json(data);
 };
 
 module.exports = confirmBookingController;
