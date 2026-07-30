@@ -1,5 +1,13 @@
-const reserveSeats = require("../controller/reserve");
-const confirmBooking = require("../controller/confirm");
-const cancelBooking = require("../controller/cancel");
+const reserveSeats = require("./reserve");
+const confirmBooking = require("./confirm");
+const cancelBooking = require("./cancel");
+const getUserBookings = require("./user-bookings");
+const getAllBookings = require("./all-bookings");
 
-module.exports = { reserveSeats, confirmBooking, cancelBooking };
+module.exports = {
+  reserveSeats,
+  confirmBooking,
+  cancelBooking,
+  getUserBookings,
+  getAllBookings,
+};

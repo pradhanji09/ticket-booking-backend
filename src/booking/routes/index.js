@@ -17,6 +17,15 @@ router.post(
   bookingController.cancelBooking,
 );
 
+router.get("/my", authenticate, bookingController.getUserBookings);
+
+router.get(
+  "/admin",
+  authenticate,
+  requireAdmin,
+  bookingController.getAllBookings,
+);
+
 router.post(
   "/confirm",
   authenticate,
