@@ -1,12 +1,6 @@
 const Transaction = require("../model/transaction.model");
 
-const getAllTransactionsService = async ({
-  page,
-  limit,
-  userId,
-  type,
-  reason,
-}) => {
+const getAllTransactionsService = async (page, limit, userId, type, reason) => {
   try {
     const query = {};
     if (userId) query.userId = userId;

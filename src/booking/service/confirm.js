@@ -1,10 +1,11 @@
 const Booking = require("../model/booking.model");
 const Seat = require("../../event/model/seat.model");
 const Event = require("../../event/model/event.model");
-const Wallet = require("../../user/model/wallet.model");
-const runInTransaction = require("../../config/transaction");
+const Wallet = require("../../wallet/model/wallet.model");
+
 const { formatBooking } = require("../helper/booking.helper");
 const Transaction = require("../../wallet/model/transaction.model");
+const runInTransaction = require("../../common/utils/run-transaction");
 
 const confirmBookingService = async (
   id,
