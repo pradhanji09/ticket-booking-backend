@@ -4,6 +4,25 @@ A robust, production-ready RESTful backend API for an event ticket booking syste
 
 ---
 
+## Table of Contents
+
+- [Tech Stack](#tech-stack)
+- [Setup Instructions](#setup-instructions)
+  - [Prerequisites](#prerequisites)
+  - [Installation & Execution](#installation--execution)
+  - [Enabling MongoDB Replica Set Locally](#enabling-mongodb-replica-set-locally)
+- [API Overview](#api-overview)
+  - [Auth Module (`/api/auth`)](#auth-module-apiauth)
+  - [Wallet Module (`/api/wallet`)](#wallet-module-apiwallet)
+  - [Event Module (`/api/events`)](#event-module-apievents)
+  - [Booking Module (`/api/bookings`)](#booking-module-apibookings)
+- [Design Decisions](#design-decisions)
+- [Assumptions](#assumptions)
+- [Known Limitations](#known-limitations)
+- [Folder Structure](#folder-structure)
+
+---
+
 ## Tech Stack
 
 The core dependencies powering this application (as specified in `package.json`) include:
