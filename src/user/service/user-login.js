@@ -34,7 +34,7 @@ const loginService = async (email, password) => {
   } catch (error) {
     return {
       status: 500,
-      data: { success: false, error: "Internal server error" },
+      data: { success: false, error: error.message },
     };
   }
 };
